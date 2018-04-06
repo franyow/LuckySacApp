@@ -1,4 +1,4 @@
-package com.example.wes_o.testluckyapp.adapter;
+package com.example.wes_o.testluckyapp.Adapters;
 
 import android.content.Context;
 import android.content.Intent;
@@ -7,11 +7,13 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.example.wes_o.testluckyapp.Entities.Market;
-import com.example.wes_o.testluckyapp.MeActivity;
+import com.example.wes_o.testluckyapp.Activities.MapsActivity;
+import com.example.wes_o.testluckyapp.Activities.ProductsActivity;
 import com.example.wes_o.testluckyapp.R;
 
 import java.util.ArrayList;
@@ -46,54 +48,79 @@ public class ListMarketAdapter extends RecyclerView.Adapter<ListMarketAdapter.Vi
             @Override
             public void onClick(View view) {
                 Context context = view.getContext();
+                Bundle positionG = new Bundle();
 
+                switch(position){
+                    case 0:
 
+                        Intent i = new Intent(context, ProductsActivity.class);
 
+                        positionG.putInt("positionA",1);
+                        i.putExtras(positionG);
+                        context.startActivity(i);
+                        break;
 
+                    case 1:
+                        Intent j = new Intent(context, ProductsActivity.class);
+                        positionG.putInt("positionA",2);
+                        j.putExtras(positionG);
+                        context.startActivity(j);
+                        break;
 
+                    case 2:
+                        Intent k = new Intent(context, ProductsActivity.class);
+                        positionG.putInt("positionA",3);
+                        k.putExtras(positionG);
+                        context.startActivity(k);
+                        break;
+                }
+            }
+
+        });
+
+        holder.imageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Context context = view.getContext();
                 Bundle positionG = new Bundle();
 
 
                 switch(position){
                     case 0:
 
-                        Intent i = new Intent(context, MeActivity.class);
+                        Intent i = new Intent(context, MapsActivity.class);
 
                         positionG.putInt("positionA",1);
                         i.putExtras(positionG);
                         context.startActivity(i);
-
-
-
-                        //i.putExtra("pos", id); // Pass Id
-                        //i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                         break;
-                    case 1:
 
-                        Intent j = new Intent(context, MeActivity.class);
+                    case 1:
+                        Intent j = new Intent(context, MapsActivity.class);
                         positionG.putInt("positionA",2);
                         j.putExtras(positionG);
                         context.startActivity(j);
-
                         break;
-                    case 2:
 
-                        Intent k = new Intent(context, MeActivity.class);
+                    case 2:
+                        Intent k = new Intent(context, MapsActivity.class);
                         positionG.putInt("positionA",3);
                         k.putExtras(positionG);
                         context.startActivity(k);
-
                         break;
-
-
-
                 }
 
-
-
             }
-
         });
+
+
+
+
+
+
+
+
+
 
     }
 
@@ -103,9 +130,17 @@ public class ListMarketAdapter extends RecyclerView.Adapter<ListMarketAdapter.Vi
     }
 
     public class ViewHolderMarkets extends RecyclerView.ViewHolder {
-        TextView nombre, direccion, distrito;
 
+        TextView nombre, direccion, distrito;
         public LinearLayout linearLayout;
+
+        public ImageView imageView;
+
+
+
+
+
+
 
 
         public ViewHolderMarkets(View itemView) {
@@ -116,6 +151,24 @@ public class ListMarketAdapter extends RecyclerView.Adapter<ListMarketAdapter.Vi
 
             linearLayout = (LinearLayout)itemView.findViewById(R.id.linearLayout);
 
+            imageView = (ImageView) itemView.findViewById(R.id.imgMarca);
+
+            //imageView.setOnClickListener((View.OnClickListener) this);
+
+
+
+
+
+
+
         }
+
+
+
+        };
+
+
+
+
     }
-}
+

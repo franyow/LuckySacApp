@@ -1,19 +1,20 @@
-package com.example.wes_o.testluckyapp;
+package com.example.wes_o.testluckyapp.Activities;
 
-import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
 
 import java.util.ArrayList;
 
 import com.example.wes_o.testluckyapp.Entities.Market;
 import com.example.wes_o.testluckyapp.OpenHelper.ConnectionSQLiteHelper;
+import com.example.wes_o.testluckyapp.R;
 import com.example.wes_o.testluckyapp.Utilities.Utilities;
-import com.example.wes_o.testluckyapp.adapter.ListMarketAdapter;
+import com.example.wes_o.testluckyapp.Adapters.ListMarketAdapter;
 
 public class MarketsActivity extends AppCompatActivity {
 
@@ -79,13 +80,6 @@ public class MarketsActivity extends AppCompatActivity {
 
 
 
-
-
-
-
-
-
-
     }
 
     //Setear datos
@@ -123,34 +117,10 @@ public class MarketsActivity extends AppCompatActivity {
         //marketList.add();
     }*/
 
-    public void SetDatosPredefinidos(){
+    public interface RecyclerViewClickListener {
 
-        ConnectionSQLiteHelper conn=new ConnectionSQLiteHelper(this,"MarketBD",null,1);
-        SQLiteDatabase db=conn.getWritableDatabase();
-
-        ContentValues values=new ContentValues();
-
-        values.put(Utilities.CAMPO_ID,"1");
-        values.put(Utilities.CAMPO_NOMBRE,"Wong");
-        values.put(Utilities.CAMPO_DIRECCION,"Av. Sta. Cruz 771");
-        values.put(Utilities.CAMPO_DISTRITO,"Miraflores");
-        //values.put(Utilities.CAMPO_LATITUD,"77.02547370000002");
-        //values.put(Utilities.CAMPO_LONGITUD,"2.0960258");
-
-        db.close();
-
-
-        //Long idResultante=db.insert(Utilities.TABLA_MARKETS,Utilities.CAMPO_ID,values);
-
-        //values.put(Utilidades.CAMPO_NOMBRE,campoNombre.getText().toString());
-
-        //values.put(Utilidades.CAMPO_TELEFONO,campoTelefono.getText().toString());
-
-
-        /*marketList.add(new Market(1,"Wong","Av. Sta. Cruz 771", "Miraflores ",-12.0960258,-77.02547370000002));
-        marketList.add(new Market(2,"Metro","Tiendas 290, 15047", "Surquillo",12.1038253,77.02055239999998));
-        marketList.add(new Market(3,"Tottus","Calle Las Begonias 785", "San Isidro",12.0960258,77.02547370000002));
-*/
+        void onRowClicked(int position);
+        void onViewClicked(View v, int position);
     }
 
 

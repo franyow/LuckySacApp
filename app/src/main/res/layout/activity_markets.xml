@@ -8,7 +8,7 @@
     android:paddingLeft="16dp"
     android:paddingRight="16dp"
     android:paddingTop="16dp"
-    tools:context="com.example.wes_o.testluckyapp.MarketsActivity">
+    tools:context="com.example.wes_o.testluckyapp.Activities.MarketsActivity">
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recyclerview"

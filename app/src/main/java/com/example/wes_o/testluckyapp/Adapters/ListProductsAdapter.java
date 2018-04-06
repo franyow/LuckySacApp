@@ -1,4 +1,4 @@
-package com.example.wes_o.testluckyapp.adapter;
+package com.example.wes_o.testluckyapp.Adapters;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;

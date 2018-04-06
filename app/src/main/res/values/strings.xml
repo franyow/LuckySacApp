@@ -1,3 +1,4 @@
 <resources>
-    <string name="app_name">TestLuckyApp</string>
+    <string name="app_name">Lucky App</string>
+    <string name="title_activity_maps">Map</string>
 </resources>
