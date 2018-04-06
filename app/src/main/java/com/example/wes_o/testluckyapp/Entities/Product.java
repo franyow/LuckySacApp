@@ -7,63 +7,58 @@ import java.io.Serializable;
  */
 
 public class Product implements Serializable {
-    private int id;
-    private int idMarket;
-    private String nombre;
-    private double precio;
-    private int stock;
+    private String id;
+    private String precio;
+    private String stock;
+    private String id_market;
 
-    public Product(int id, int idMarket, String nombre, double precio, int stock) {
+
+
+    public Product(String id, String precio, String stock, String id_market) {
         this.id = id;
-        this.idMarket = idMarket;
-        this.nombre = nombre;
         this.precio = precio;
         this.stock = stock;
+        this.id_market = id_market;
     }
+
+    public String getId_market() {
+        return id_market;
+    }
+
+    public void setId_market(String id_market) {
+        this.id_market = id_market;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getPrecio() {
+        return precio;
+    }
+
+    public void setPrecio(String precio) {
+        this.precio = precio;
+    }
+
+    public String getStock() {
+        return stock;
+    }
+
+    public void setStock(String stock) {
+        this.stock = stock;
+    }
+
+
 
     public Product(){
 
     }
 
-    public int getIdMarket() {
-        return idMarket;
-    }
-
-    public void setIdMarket(int idMarket) {
-        this.idMarket = idMarket;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public double getPrecio() {
-        return precio;
-    }
-
-    public void setPrecio(double precio) {
-        this.precio = precio;
-    }
-
-    public int getStock() {
-        return stock;
-    }
-
-    public void setStock(int stock) {
-        this.stock = stock;
-    }
 
 
 }

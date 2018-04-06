@@ -19,10 +19,8 @@
         <activity
             android:name=".LoginActivity"
             android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
-        <activity android:name=".ProductActivity" />
-        <activity android:name=".MarketsActivity">
-
-        </activity>
+        <activity android:name=".MeActivity" />
+        <activity android:name=".MarketsActivity" />
     </application>
 
 </manifest>

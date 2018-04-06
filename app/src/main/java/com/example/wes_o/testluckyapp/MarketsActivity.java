@@ -53,20 +53,37 @@ public class MarketsActivity extends AppCompatActivity {
         ConnectionSQLiteHelper conn=new ConnectionSQLiteHelper(this,"MarketBD",null,1);
         SQLiteDatabase db=conn.getWritableDatabase();
 
-        //inser into market
-        //String insert="INSERT INTO market (id,nombre,direccion,distrito,latitud,longitud) " +
-        //        "VALUES (1, 'Paul', 'tu vieja', 'California', 20000,3000 )";
 
-        String metro="INSERT INTO MERCADO (id,nombre,direccion,distrito) " + "VALUES (1, 'Metro', 'Tiendas 290, 15047', 'Surquillo')";
-        String wong="INSERT INTO MERCADO (id,nombre,direccion,distrito) " + "VALUES (2, 'Wong', 'Av. Sta. Cruz 771', 'Miraflores')";
-        String tottus="INSERT INTO MERCADO (id,nombre,direccion,distrito) " + "VALUES (3, 'Tottus', 'Calle Las Begonias 785', 'San Isidro')";
+        Cursor mCursor = db.rawQuery("SELECT * FROM  MERCADO", null);
+        Boolean rowExists;
 
-        db.execSQL(metro);
-        db.execSQL(wong);
-        db.execSQL(tottus);
+        if (mCursor.moveToFirst())
+        {
+            db.close();
+            rowExists = true;
+
+        } else
+        {
+            String metro = "INSERT INTO MERCADO (id,nombre,direccion,distrito) " + "VALUES (1, 'Metro', 'Tiendas 290, 15047', 'Surquillo')";
+            String wong = "INSERT INTO MERCADO (id,nombre,direccion,distrito) " + "VALUES (2, 'Wong', 'Av. Sta. Cruz 771', 'Miraflores')";
+            String tottus = "INSERT INTO MERCADO (id,nombre,direccion,distrito) " + "VALUES (3, 'Tottus', 'Calle Las Begonias 785', 'San Isidro')";
+
+            db.execSQL(metro);
+            db.execSQL(wong);
+            db.execSQL(tottus);
+            db.close();
+            rowExists = false;
+        }
 
 
-        db.close();
+
+
+
+
+
+
+
+
 
 
     }
@@ -95,6 +112,8 @@ public class MarketsActivity extends AppCompatActivity {
         db.close();
 
     }
+
+
 
     /*public void loadData(){
         helper.openDB();

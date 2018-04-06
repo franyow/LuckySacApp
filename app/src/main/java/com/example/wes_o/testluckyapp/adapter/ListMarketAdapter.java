@@ -1,12 +1,17 @@
 package com.example.wes_o.testluckyapp.adapter;
 
+import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.example.wes_o.testluckyapp.Entities.Market;
+import com.example.wes_o.testluckyapp.MeActivity;
 import com.example.wes_o.testluckyapp.R;
 
 import java.util.ArrayList;
@@ -19,6 +24,8 @@ public class ListMarketAdapter extends RecyclerView.Adapter<ListMarketAdapter.Vi
 
     ArrayList<Market> marketList;
 
+
+
     public ListMarketAdapter(ArrayList<Market> marketList) {
         this.marketList = marketList;
     }
@@ -30,10 +37,63 @@ public class ListMarketAdapter extends RecyclerView.Adapter<ListMarketAdapter.Vi
     }
 
     @Override
-    public void onBindViewHolder(ViewHolderMarkets holder, int position) {
+    public void onBindViewHolder(ViewHolderMarkets holder, final int position) {
         holder.nombre.setText(marketList.get(position).getNombre());
         holder.direccion.setText(marketList.get(position).getDireccion());
         holder.distrito.setText(marketList.get(position).getDistrito());
+
+        holder.linearLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Context context = view.getContext();
+
+
+
+
+
+                Bundle positionG = new Bundle();
+
+
+                switch(position){
+                    case 0:
+
+                        Intent i = new Intent(context, MeActivity.class);
+
+                        positionG.putInt("positionA",1);
+                        i.putExtras(positionG);
+                        context.startActivity(i);
+
+
+
+                        //i.putExtra("pos", id); // Pass Id
+                        //i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                        break;
+                    case 1:
+
+                        Intent j = new Intent(context, MeActivity.class);
+                        positionG.putInt("positionA",2);
+                        j.putExtras(positionG);
+                        context.startActivity(j);
+
+                        break;
+                    case 2:
+
+                        Intent k = new Intent(context, MeActivity.class);
+                        positionG.putInt("positionA",3);
+                        k.putExtras(positionG);
+                        context.startActivity(k);
+
+                        break;
+
+
+
+                }
+
+
+
+            }
+
+        });
 
     }
 
@@ -45,12 +105,16 @@ public class ListMarketAdapter extends RecyclerView.Adapter<ListMarketAdapter.Vi
     public class ViewHolderMarkets extends RecyclerView.ViewHolder {
         TextView nombre, direccion, distrito;
 
+        public LinearLayout linearLayout;
+
 
         public ViewHolderMarkets(View itemView) {
             super(itemView);
             nombre = (TextView) itemView.findViewById(R.id.textNombre);
             direccion = (TextView) itemView.findViewById(R.id.textDireccion);
             distrito = (TextView) itemView.findViewById(R.id.textDistrito);
+
+            linearLayout = (LinearLayout)itemView.findViewById(R.id.linearLayout);
 
         }
     }
