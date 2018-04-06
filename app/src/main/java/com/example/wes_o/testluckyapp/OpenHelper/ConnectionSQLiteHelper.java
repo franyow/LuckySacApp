@@ -22,15 +22,15 @@ public class ConnectionSQLiteHelper extends SQLiteOpenHelper{
     @Override
     public void onCreate(SQLiteDatabase db) {
 
-        db.execSQL(Utilities.CREAR_TABLA_MARKET);
-        db.execSQL(Utilities.CREAR_TABLA_PRODUCTS);
+        db.execSQL(Utilities.CREAR_TABLA_MARKET1);
+        //db.execSQL(Utilities.CREAR_TABLA_PRODUCTS);
 
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int lastVersion, int newVersion) {
-        db.execSQL("DROP TABLE IF EXISTS "+Utilities.TABLA_MARKETS);
-        db.execSQL("DROP TABLE IF EXISTS "+Utilities.TABLA_PRODUCTS);
+        db.execSQL("DROP TABLE IF EXISTS "+Utilities.TABLA_MARKETS1);
+        //db.execSQL("DROP TABLE IF EXISTS "+Utilities.TABLA_PRODUCTS);
         onCreate(db);
 
     }
@@ -38,16 +38,7 @@ public class ConnectionSQLiteHelper extends SQLiteOpenHelper{
 
     //---------------------------------
 
-    //Abre la DB
-    public void openDB(){
-        this.getWritableDatabase();
 
-    }
-
-    //Cierra BD
-    public void closeDB(){
-        this.close();
-    }
 
     //insertarValues a la tabla
     public void insertarReg(String id,String nombre, String direccion, String distrito,String latitud, String longitud){

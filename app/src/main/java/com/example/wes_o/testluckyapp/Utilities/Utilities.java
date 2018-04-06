@@ -16,8 +16,11 @@ public class Utilities {
     public static final String CAMPO_LATITUD = "latitud";
     public static final String CAMPO_LONGITUD = "longitud";
 
-    public static final String CREAR_TABLA_MARKET = "CREATE TABLE "+TABLA_MARKETS+" ("+CAMPO_ID+" INTEGER, "+CAMPO_NOMBRE+" TEXT, "+CAMPO_DIRECCION+" TEXT, "+CAMPO_DISTRITO+" TEXT, "+CAMPO_LATITUD+" REAL, "+CAMPO_LONGITUD+" REAL)";
+    public static final String TABLA_MARKETS1= "MERCADO";
 
+
+    public static final String CREAR_TABLA_MARKET = "CREATE TABLE "+TABLA_MARKETS+" ("+CAMPO_ID+" INTEGER, "+CAMPO_NOMBRE+" TEXT, "+CAMPO_DIRECCION+" TEXT, "+CAMPO_DISTRITO+" TEXT, "+CAMPO_LATITUD+" REAL, "+CAMPO_LONGITUD+" REAL)";
+    public static final String CREAR_TABLA_MARKET1= "CREATE TABLE MERCADO(ID INTEGER , NOMBRE TEXT, DIRECCION TEXT, DISTRITO TEXT)";
 
 
     //Constantes tabla products

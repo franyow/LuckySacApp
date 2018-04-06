@@ -21,6 +21,10 @@ public class Product implements Serializable {
         this.stock = stock;
     }
 
+    public Product(){
+
+    }
+
     public int getIdMarket() {
         return idMarket;
     }

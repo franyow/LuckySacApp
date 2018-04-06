@@ -24,6 +24,10 @@ public class Market implements Serializable{
         this.latitud = latitud;
     }
 
+    public Market(){
+
+    }
+
     public int getId() {
         return id;
     }
