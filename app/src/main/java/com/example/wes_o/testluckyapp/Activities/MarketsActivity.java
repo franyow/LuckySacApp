@@ -1,12 +1,20 @@
 package com.example.wes_o.testluckyapp.Activities;
 
+import android.Manifest;
+import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.support.annotation.NonNull;
+import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -23,6 +31,9 @@ public class MarketsActivity extends AppCompatActivity {
     ArrayList<Market> marketList = new ArrayList<>();
 
     ConnectionSQLiteHelper conn;
+    private final int REQUEST_ACCES_FINE=0;
+
+
 
     //anterior
     //ConnectionSQLiteHelper helper = new ConnectionSQLiteHelper(this,"MarketDB",null,1);
@@ -31,6 +42,8 @@ public class MarketsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_markets);
+
+        comprobarPermisos();
 
 
         conn = new ConnectionSQLiteHelper(getApplicationContext(),"MarketBD",null,1);
@@ -48,6 +61,42 @@ public class MarketsActivity extends AppCompatActivity {
         recyclerViewMarkets.setAdapter(adapter);
 
 
+
+
+    }
+
+    @Override
+    public void onBackPressed() {
+
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+
+        if(requestCode == REQUEST_ACCES_FINE){
+            if(grantResults.length>0 && grantResults[0] == PackageManager.PERMISSION_GRANTED);
+            Toast.makeText(this,"Permiso agregado",Toast.LENGTH_SHORT).show();
+            Toast.makeText(this,"Permiso denegado",Toast.LENGTH_SHORT).show();
+
+        }
+    }
+
+
+    //menu logout
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if(item.getItemId()== R.id.action_sign_out){
+            Intent intent = new Intent(this, LoginActivity.class);
+            startActivity(intent);
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     private void registrarmarketSql() {
@@ -82,7 +131,10 @@ public class MarketsActivity extends AppCompatActivity {
 
     }
 
-    //Setear datos
+    public void comprobarPermisos(){
+        if(ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED)
+            ActivityCompat.requestPermissions(this,new String[]{Manifest.permission.ACCESS_FINE_LOCATION},REQUEST_ACCES_FINE);
+    }
 
 
     private void consultarListaMarkets() {

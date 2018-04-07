@@ -2,8 +2,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.wes_o.testluckyapp">
 
-
-
     <!--
          The ACCESS_COARSE/FINE_LOCATION permissions are not required to use
          Google Maps Android API v2, but you must specify either coarse or fine
@@ -19,16 +17,20 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".Activities.MainActivity">
+
+        </activity>
+        <activity android:name=".Activities.LoginActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
         </activity>
-        <activity
-            android:name=".Activities.LoginActivity"
-            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
-        <activity android:name=".Activities.ProductsActivity" />
+        <activity android:name=".Activities.ProductsActivity"
+            android:screenOrientation="portrait"/>
         <activity android:name=".Activities.MarketsActivity" />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
@@ -49,6 +51,8 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.wes_o.testluckyapp.Activities.MarketsActivity" />
         </activity>
+        <activity android:name=".Activities.RegisterActivity"
+            android:screenOrientation="portrait"></activity>
     </application>
 
 </manifest>

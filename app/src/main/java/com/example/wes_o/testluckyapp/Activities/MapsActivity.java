@@ -8,12 +8,14 @@ import android.content.pm.PackageManager;
 import android.location.Location;
 import android.location.LocationManager;
 import android.provider.Settings;
+import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AlertDialog;
 import android.widget.Switch;
+import android.widget.Toast;
 
 import com.example.wes_o.testluckyapp.R;
 import com.google.android.gms.maps.CameraUpdate;
@@ -30,6 +32,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
     private static final int MY_PERMISSIONS_REQUEST_READ_CONTACTS=1;
 
+
+
     private GoogleMap mMap;
     private Marker marcador;
     double lat=0.0;
@@ -43,6 +47,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
+
     }
 
 
@@ -50,7 +55,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
 
-        solicitarPermisos();
+
 
         // Add a marker in Sydney and move the camera
         // LatLng sydney = new LatLng(-34, 151);
@@ -70,10 +75,14 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         mMap.setMyLocationEnabled(true);
 
         mMap.getUiSettings().setZoomControlsEnabled(true);
+
+        solicitarPermisos();
         agregarMarcador();
 
 
     }
+
+
 
 
     private void agregarMarcador(){
@@ -108,6 +117,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         mMap.animateCamera(ubicacion);
 
     }
+
+
 
 
     public void solicitarPermisos(){

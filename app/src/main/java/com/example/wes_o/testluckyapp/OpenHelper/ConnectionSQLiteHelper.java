@@ -7,9 +7,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 import com.example.wes_o.testluckyapp.Utilities.Utilities;
 
-/**
- * Created by wes_o on 5/04/2018.
- */
+
 
 public class ConnectionSQLiteHelper extends SQLiteOpenHelper{
 
@@ -24,6 +22,7 @@ public class ConnectionSQLiteHelper extends SQLiteOpenHelper{
 
         db.execSQL(Utilities.CREAR_TABLA_MARKET1);
         db.execSQL(Utilities.CREAR_TABLA_PRODUCTS);
+        db.execSQL(Utilities.CREATE_USER_TABLE);
 
     }
 
@@ -31,6 +30,7 @@ public class ConnectionSQLiteHelper extends SQLiteOpenHelper{
     public void onUpgrade(SQLiteDatabase db, int lastVersion, int newVersion) {
         db.execSQL("DROP TABLE IF EXISTS "+Utilities.TABLA_MARKETS1);
         db.execSQL("DROP TABLE IF EXISTS "+Utilities.TABLA_PRODUCTS);
+        db.execSQL("DROP TABLE IF EXISTS "+Utilities.TABLE_USER);
         onCreate(db);
 
     }
