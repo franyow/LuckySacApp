@@ -1,9 +1,6 @@
 package com.example.wes_o.testluckyapp.Activities;
 
-import android.content.ContentValues;
 import android.content.Intent;
-import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
 import android.support.design.widget.Snackbar;
 import android.support.design.widget.TextInputEditText;
 import android.support.design.widget.TextInputLayout;
@@ -14,15 +11,9 @@ import android.support.v7.widget.AppCompatButton;
 import android.support.v7.widget.AppCompatTextView;
 import android.view.View;
 
-import com.example.wes_o.testluckyapp.Entities.User;
-import com.example.wes_o.testluckyapp.OpenHelper.ConnectionSQLiteHelper;
 import com.example.wes_o.testluckyapp.OpenHelper.DatabaseHelper;
 import com.example.wes_o.testluckyapp.OpenHelper.InputValidation;
 import com.example.wes_o.testluckyapp.R;
-import com.example.wes_o.testluckyapp.Utilities.Utilities;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener{
     private final AppCompatActivity activity = LoginActivity.this;
@@ -99,8 +90,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 verifyFromSQLite();
                 break;
             case R.id.textViewLinkRegister:
-                // Navigate to RegisterActivity
-                Intent intentRegister = new Intent(getApplicationContext(), RegisterActivity.class);
+                // Navigate to RegisterUserActivity
+                Intent intentRegister = new Intent(getApplicationContext(), RegisterUserActivity.class);
                 startActivity(intentRegister);
                 break;
         }

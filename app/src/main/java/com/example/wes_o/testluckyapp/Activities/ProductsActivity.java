@@ -1,11 +1,14 @@
 package com.example.wes_o.testluckyapp.Activities;
 
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
 
 import com.example.wes_o.testluckyapp.Entities.Product;
 import com.example.wes_o.testluckyapp.OpenHelper.ConnectionSQLiteHelper;
@@ -22,6 +25,8 @@ public class ProductsActivity extends AppCompatActivity {
 
     ConnectionSQLiteHelper conn;
 
+    FloatingActionButton fab;
+
 
 
 
@@ -33,6 +38,8 @@ public class ProductsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.products_recyclerview);
+
+
 
 
         conn = new ConnectionSQLiteHelper(getApplicationContext(), "MarketBD", null, 1);
@@ -50,8 +57,18 @@ public class ProductsActivity extends AppCompatActivity {
 
 
 
+        fab = (FloatingActionButton)findViewById(R.id.floatButtom);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                startActivity(new Intent(ProductsActivity.this, RegisterProductsActivity.class));
+            }
+        });
 
     }
+
+
 
     private void cosultaListaProducts() {
         SQLiteDatabase db = conn.getReadableDatabase();

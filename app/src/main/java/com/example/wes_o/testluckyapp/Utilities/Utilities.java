@@ -27,6 +27,7 @@ public class Utilities {
     public static final String TABLA_PRODUCTS= "product";
     public static final String CAMPO_ID_PRODUCTO = "id";
     public static final String CAMPO_NOMBRE_PRODUCTO= "nombre";
+    public static final String CAMPO_PRECIO_PRODUCTO= "precio";
     public static final String CAMPO_STOCK_PRODUCTO = "stock";
     public static final String CAMPO_ID_MARKET = "id_market";
 

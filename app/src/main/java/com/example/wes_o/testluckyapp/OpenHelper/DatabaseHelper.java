@@ -6,7 +6,9 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
+import com.example.wes_o.testluckyapp.Entities.Product;
 import com.example.wes_o.testluckyapp.Entities.User;
+import com.example.wes_o.testluckyapp.Utilities.Utilities;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -78,6 +80,21 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         // Inserting Row
         db.insert(TABLE_USER, null, values);
         db.close();
+    }
+
+    public void addProduct(Product product){
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        ContentValues values = new ContentValues();
+        //values.put(Utilities.CAMPO_NOMBRE_PRODUCTO, product.get());
+        values.put(Utilities.CAMPO_PRECIO_PRODUCTO, product.getPrecio());
+        values.put(Utilities.CAMPO_STOCK_PRODUCTO, product.getStock());
+        values.put(Utilities.CAMPO_ID_MARKET, product.getId_market());
+
+        // Inserting Row
+        db.insert(Utilities.TABLA_PRODUCTS, null, values);
+        db.close();
+
     }
 
     /**

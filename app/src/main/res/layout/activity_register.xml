@@ -10,7 +10,7 @@
     android:paddingLeft="20dp"
     android:paddingRight="20dp"
     android:paddingTop="20dp"
-    tools:context="com.example.wes_o.testluckyapp.Activities.RegisterActivity">
+    tools:context="com.example.wes_o.testluckyapp.Activities.RegisterUserActivity">
 
     <android.support.v7.widget.LinearLayoutCompat
         android:layout_width="match_parent"

@@ -17,9 +17,9 @@ import com.example.wes_o.testluckyapp.OpenHelper.InputValidation;
 import com.example.wes_o.testluckyapp.R;
 
 
-public class RegisterActivity extends AppCompatActivity implements View.OnClickListener {
+public class RegisterUserActivity extends AppCompatActivity implements View.OnClickListener {
 
-    private final AppCompatActivity activity = RegisterActivity.this;
+    private final AppCompatActivity activity = RegisterUserActivity.this;
 
     private NestedScrollView nestedScrollView;
 
